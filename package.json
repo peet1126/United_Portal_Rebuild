@@ -1,0 +1,11 @@
+{
+  "name": "united-portal",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "deploy": "npm run deploy --workspace=packages/infra"
+  }
+}

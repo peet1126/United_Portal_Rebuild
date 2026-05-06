@@ -1,0 +1,46 @@
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum TicketCategory {
+  FACILITIES
+  CLEANING
+  STORE_DESIGN
+  OTHER
+}
+
+type Ticket {
+  id: ID!
+  title: String!
+  description: String!
+  category: TicketCategory!
+  status: TicketStatus!
+  submittedBy: String!
+  assignedTo: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+input CreateTicketInput {
+  title: String!
+  description: String!
+  category: TicketCategory!
+}
+
+input UpdateTicketInput {
+  status: TicketStatus
+  assignedTo: String
+}
+
+type Query {
+  getTicket(id: ID!): Ticket
+  listTickets(status: TicketStatus): [Ticket!]!
+}
+
+type Mutation {
+  createTicket(input: CreateTicketInput!): Ticket!
+  updateTicket(id: ID!, input: UpdateTicketInput!): Ticket!
+}

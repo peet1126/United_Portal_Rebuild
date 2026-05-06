@@ -1,0 +1,22 @@
+{
+  "name": "@united-portal/infra",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "deploy": "cdk deploy --all --require-approval never",
+    "destroy": "cdk destroy --all",
+    "diff": "cdk diff",
+    "synth": "cdk synth"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.170.0",
+    "constructs": "^10.0.0"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.170.0",
+    "typescript": "~5.5.0",
+    "@types/node": "^20",
+    "esbuild": "^0.21.0"
+  }
+}
